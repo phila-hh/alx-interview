@@ -12,7 +12,11 @@ def minOperations(n):
     clipboard = 0
     done = 1
     while n > done:
-        if clipboard == 0 or ((n - done) % done == 0 and n - done > 0):
+        if clipboard == 0:
+            clipboard = done
+            done += clipboard
+            count += 2
+        elif (n - done) % done == 0 and n - done > 0:
             clipboard = done
             done += clipboard
             count += 2
