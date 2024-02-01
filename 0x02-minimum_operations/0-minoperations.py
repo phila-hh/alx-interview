@@ -6,7 +6,7 @@
 
 def minOperations(n):
     """Calculates the fewest number of oprations needed"""
-    if type(n) not in int:
+    if type(n) is not int:
         return 0
     count = 0
     clipboard = 0
