@@ -14,7 +14,15 @@ def isWinner(x, nums):
     gameRound = 0
     while gameRound < x and gameRound < len(nums):
         n = nums[gameRound]
-        primeCount = numberOfPrimes(n)
+        primeCount = 0
+        for i in range(2, n + 1):
+            isPrime = True
+            for j in range(2, i // 2):
+                if i % j == 0:
+                    isPrime = False
+                    break
+            if isPrime is True:
+                primeCount += 1
 
         if primeCount % 2 == 0:
             benCount += 1
@@ -27,20 +35,5 @@ def isWinner(x, nums):
         return "Ben"
     elif benCount < mariaCount:
         return "Maria"
-
-
-def numberOfPrimes(n):
-    """ Returns the number of prime numbers found starting from 1 upto n """
-    count = 0
-    for i in range(2, n + 1):
-        if isPrime(i):
-            count += 1
-    return count
-
-
-def isPrime(n):
-    """ Checks if a numvber is prime """
-    for i in range(2, n // 2):
-        if n % i == 0:
-            return False
-    return True
+    else:
+        return None
