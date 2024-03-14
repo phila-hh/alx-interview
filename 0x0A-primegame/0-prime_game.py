@@ -6,7 +6,7 @@
 
 def isWinner(x, nums):
     """ Returns the winner of the prime game """
-    if type(nums) is not list or len(nums) == 0:
+    if type(nums) is not list or not nums or x < 1:
         return None
 
     mariaCount = 0
